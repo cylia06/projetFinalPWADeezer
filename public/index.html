@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="./images/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description"content="PWA app deezer music"/>
+    <link rel="apple-touch-icon" href="./images/logo192.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Tell the browser it's a PWA -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Tell iOS it's a PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Deezr App</title>
+  </head>
+  <body>
+
+     
+      
+   
+            
+              
+  
+     
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () =>{
+          navigator.serviceWorker.register('./serviceworker.js')
+          .then((reg) => console.log('Success:', reg.scope))
+          .catch((err) => console.log('Failure:', err));
+         
+        })
+      }
+    </script>
+    
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    
+  </script>
+    <script>
+     
+        var db = new Dexie("musics");
+        db.version(1).stores({
+            musics: '++id, title, imageUrl, artist, duration, preview'
+        });
+    </script>
+
+<script src="/progressive-web-app/src/js/Trending.js"></script>
+
+  </body>
+</html>
